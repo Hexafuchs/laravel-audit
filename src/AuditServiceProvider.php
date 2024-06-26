@@ -17,9 +17,8 @@ class AuditServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-audit')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-audit_table')
+            ->hasConfigFile('audit')
+            ->hasRoute('api')
             ->hasCommand(AuditCommand::class);
     }
 }
