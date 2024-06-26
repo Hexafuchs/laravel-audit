@@ -5,15 +5,13 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/hexafuchs/laravel-audit/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/hexafuchs/laravel-audit/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/hexafuchs/laravel-audit.svg?style=flat-square)](https://packagist.org/packages/hexafuchs/laravel-audit)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This package provides simple endpoints that provide information and checks about the environment of the application.
+Based on [Hexafuchs/laminas-security](https://github.com/Hexafuchs/laminas-security) and the
+[OWASP Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/PHP_Configuration_Cheat_Sheet.html).
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-audit.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-audit)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+Please feel free to debate existing checks and propose new ones. Security is a complex and evolving topic and many
+people have better insight into this topic than us. Our focus was to create a framework that others can easily expand both
+through the original code as well as through new packages that can register their own checks.
 
 ## Installation
 
@@ -23,38 +21,37 @@ You can install the package via composer:
 composer require hexafuchs/laravel-audit
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="laravel-audit-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
 php artisan vendor:publish --tag="laravel-audit-config"
 ```
 
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-audit-views"
-```
-
 ## Usage
 
-```php
-$audit = new Hexafuchs\Audit();
-echo $audit->echoPhrase('Hello, Hexafuchs!');
-```
+To gather the results of the checks, make a call to `/api/route`. The result is an array of all checks, with their name,
+group, status and some description for non-successful checks. Checks can result in a success (which is fine), an info
+(which might depend on your situation), a warning (which is likely problematic) or a fatal (which is almost always
+unwanted).
+
+You can configure the checks and some behaviour in the `config/audit.php` after publishing the config file. You should
+most probably add a middleware to restrict the access to the route.
+
+You can also use artisan. Note that this is only really useful for testing or if you have the same php configuration
+for the CLI and the webserver which if you are not sure is probably not the case. It is advised to always check this
+result against the result of `/api/route`. To execute the command, execute `php artisan audit`. You can pass group
+names as arguments to only execute these groups. The exit code is `1` if and only if a non-successful check was
+executed. You can also exclude check states, to list the available options execute the `--help` option.
+
+## Plugins
+
+If you want to create your own checks instead of working on the original repo, you can simple let your checks extend
+the abstract \Hexafuchs\Audit\Checks\Check class or implement the \Hexafuchs\Audit\Checks\Checkable interface, then
+merge your checks into the audit.checks config array.
+
+You can also not implement the interface if you want to have another return type, all checks in audit.checks that
+contain an execute function will be executed with no arguments. Note that you will not be able to have colored output
+in the artisan command for other status values.
 
 ## Testing
 
@@ -65,19 +62,6 @@ composer test
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
-## Credits
-
-- [Leo](https://github.com/EinfachLeo)
-- [All Contributors](../../contributors)
 
 ## License
 
