@@ -24,7 +24,7 @@ composer require hexafuchs/laravel-audit
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-audit-config"
+php artisan vendor:publish --tag="audit-config"
 ```
 
 ## Usage
