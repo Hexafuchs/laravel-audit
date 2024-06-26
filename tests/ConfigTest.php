@@ -36,7 +36,7 @@ it('contains different names', function () {
         $instance = app()->make($check);
         $names[] = $instance->getName();
     }
-    expect(sizeof($names))->toBe(sizeof(array_unique($names)));
+    expect(count($names))->toBe(count(array_unique($names)));
 });
 
 it('contains different errors', function () {
@@ -46,5 +46,5 @@ it('contains different errors', function () {
         $errors[] = $instance->getError()->message;
     }
 
-    expect(sizeof($errors))->toBe(sizeof(array_unique($errors)));
+    expect(count($errors))->toBe(count(array_unique($errors)));
 });
