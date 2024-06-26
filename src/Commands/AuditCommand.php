@@ -37,6 +37,7 @@ class AuditCommand extends Command
                 CheckState::FATAL => $this->option('no-fatal'),
                 CheckState::SUCCESS => $this->option('no-success'),
                 CheckState::INFO => $this->option('no-info'),
+                /** @phpstan-ignore-next-line To support tests that extend or do not implement the interface */
                 default => $this->option('no-unknown'),
             }) {
                 continue;
