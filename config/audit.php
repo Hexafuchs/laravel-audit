@@ -25,7 +25,7 @@ return [
     // List of middlewares to be passed to the route. You can use this to restrict access to the route, as you
     // probably should do.
     'middleware' => [
-        'api'
+        'api',
     ],
     // Path of the api route.
     'path' => '/api/audit',
@@ -54,5 +54,5 @@ return [
         'filepro_rowcount',
         'filepro_retrieve',
         'posix_mkfifo',
-    ]
+    ],
 ];

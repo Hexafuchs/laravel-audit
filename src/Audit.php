@@ -6,9 +6,11 @@ use Hexafuchs\Audit\Checks\CheckResult;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Collection;
 
-class Audit {
+class Audit
+{
     /**
      * @return Collection<CheckResult>
+     *
      * @throws BindingResolutionException
      */
     public function run(): Collection
@@ -16,7 +18,7 @@ class Audit {
         $results = Collection::empty();
 
         foreach (config('audit.checks') as $check) {
-            if (!is_string($check)) {
+            if (! is_string($check)) {
                 continue;
             }
 

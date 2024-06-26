@@ -28,6 +28,6 @@ class NoForbiddenFunctions extends Check
 
     public function getError(): CheckResult
     {
-        return CheckResult::info('the following functions are enabled, consider disabling them if possible or remove them from the config otherwise: ' . implode(', ', $this->getMissingFunctions()));
+        return CheckResult::info('the following functions are enabled, consider disabling them if possible or remove them from the config otherwise: '.implode(', ', $this->getMissingFunctions()));
     }
 }

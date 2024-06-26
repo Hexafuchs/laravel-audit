@@ -2,9 +2,9 @@
 
 namespace Hexafuchs\Audit;
 
+use Hexafuchs\Audit\Commands\AuditCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Hexafuchs\Audit\Commands\AuditCommand;
 
 class AuditServiceProvider extends PackageServiceProvider
 {

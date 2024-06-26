@@ -21,18 +21,18 @@ class AuditCommand extends Command
 
     public function handle(): int
     {
-        $this->warn("This is not a replacement for running the audit on your webpage, as you are likely using different php.ini files for both.");
-        $this->info("");
+        $this->warn('This is not a replacement for running the audit on your webpage, as you are likely using different php.ini files for both.');
+        $this->info('');
 
         $results = Audit::run();
 
         $exitCode = 0;
 
         foreach ($results as $result) {
-            if (!empty($this->argument('groups')) && !in_array($result->group, $this->argument('groups'))) {
+            if (! empty($this->argument('groups')) && ! in_array($result->group, $this->argument('groups'))) {
                 continue;
             }
-            if (match($result->state) {
+            if (match ($result->state) {
                 CheckState::WARNING => $this->option('no-warning'),
                 CheckState::FATAL => $this->option('no-fatal'),
                 CheckState::SUCCESS => $this->option('no-success'),
@@ -42,19 +42,19 @@ class AuditCommand extends Command
                 continue;
             }
 
-            $exitCode = max($exitCode, match($result->state) {
+            $exitCode = max($exitCode, match ($result->state) {
                 CheckState::SUCCESS => 0,
                 default => 1,
             });
 
-            $printFunc = match($result->state) {
+            $printFunc = match ($result->state) {
                 CheckState::WARNING => 'warn',
                 CheckState::FATAL => 'error',
                 CheckState::SUCCESS => 'info',
                 default => 'line',
             };
 
-            $this->$printFunc($result->name . ': ' . $result->message . ' (' . $result->state->value . ')');
+            $this->$printFunc($result->name.': '.$result->message.' ('.$result->state->value.')');
         }
 
         return $exitCode;

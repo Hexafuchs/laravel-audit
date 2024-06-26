@@ -5,10 +5,10 @@ namespace Hexafuchs\Audit\Checks;
 class CheckResult
 {
     /**
-     * @param CheckState $state state that describes the urgency to change something
-     * @param string|null $message additional information
-     * @param string|null $name name of the check
-     * @param string|null $group group of the check
+     * @param  CheckState  $state  state that describes the urgency to change something
+     * @param  string|null  $message  additional information
+     * @param  string|null  $name  name of the check
+     * @param  string|null  $group  group of the check
      */
     public function __construct(
         public CheckState $state,
@@ -48,7 +48,6 @@ class CheckResult
     {
         return new self(CheckState::FATAL, $message);
     }
-
 
     /**
      * Creates a new result and replaces the group.
