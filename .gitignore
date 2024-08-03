@@ -120,7 +120,9 @@ fabric.properties
 build
 composer.lock
 coverage
-docs
 phpunit.xml
 phpstan.neon
 testbench.yaml
+phpdoc
+.phpdoc/cache
+docs/build

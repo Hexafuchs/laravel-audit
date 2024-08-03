@@ -35,8 +35,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Hexafuchs\\Audit\\": "src/",
-            "Hexafuchs\\Audit\\Database\\Factories\\": "database/factories/"
+            "Hexafuchs\\Audit\\": "src/"
         }
     },
     "autoload-dev": {
@@ -61,7 +60,9 @@
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint"
+        "format": "vendor/bin/pint",
+        "docs:install": "wget https://phpdoc.org/phpDocumentor.phar && mv phpDocumentor.phar phpdoc",
+        "docs": "@php phpdoc run --validate -v"
     },
     "config": {
         "sort-packages": true,
