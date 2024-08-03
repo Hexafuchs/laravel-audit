@@ -13,8 +13,6 @@ class AuditController
 {
     /**
      * Executes the checks and returns the results as collection.
-     *
-     * @return Collection
      */
     public function handle(): Collection
     {
