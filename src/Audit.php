@@ -3,7 +3,6 @@
 namespace Hexafuchs\Audit;
 
 use Hexafuchs\Audit\Checks\CheckResult;
-use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Collection;
 
 /**
@@ -25,7 +24,7 @@ class Audit
                 continue;
             }
 
-            $instance = app()->make($check);
+            $instance = app($check);
 
             if (method_exists($instance, 'execute')) {
                 $results->push($instance->execute());
