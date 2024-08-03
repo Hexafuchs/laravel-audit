@@ -6,6 +6,9 @@ use Hexafuchs\Audit\Commands\AuditCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
+/**
+ * Registration of the package.
+ */
 class AuditServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void

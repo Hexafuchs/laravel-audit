@@ -1,9 +1,16 @@
 <?php
 
-namespace Hexafuchs\Audit\Checks;
+namespace Hexafuchs\Audit\Checks\IniChecks;
 
+use Hexafuchs\Audit\Checks\Check;
+use Hexafuchs\Audit\Checks\CheckResult;
 use Hexafuchs\Audit\Helper\IniConverter;
 
+/**
+ * Checks if the `display_errors` directive is enabled.
+ *
+ * This exposes sensitive information and errors to your users and should therefore be disabled.
+ */
 class DisplaysNoErrors extends Check
 {
     public function check(): bool

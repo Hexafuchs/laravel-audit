@@ -1,9 +1,16 @@
 <?php
 
-namespace Hexafuchs\Audit\Checks;
+namespace Hexafuchs\Audit\Checks\IniChecks;
 
+use Hexafuchs\Audit\Checks\Check;
+use Hexafuchs\Audit\Checks\CheckResult;
 use Hexafuchs\Audit\Helper\IniConverter;
 
+/**
+ * Checks if all functions from the `audit.forbiddenFunctions` config array are disabled.
+ *
+ * These functions should only be enabled if required to minimize attack target.
+ */
 class NoForbiddenFunctions extends Check
 {
     public function getMissingFunctions(): array
@@ -28,6 +35,6 @@ class NoForbiddenFunctions extends Check
 
     public function getError(): CheckResult
     {
-        return CheckResult::info('the following functions are enabled, consider disabling them if possible or remove them from the config otherwise: '.implode(', ', $this->getMissingFunctions()));
+        return CheckResult::info('The following functions are enabled, consider disabling them if possible or remove them from the config otherwise: '.implode(', ', $this->getMissingFunctions()));
     }
 }

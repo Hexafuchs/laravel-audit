@@ -1,9 +1,16 @@
 <?php
 
-namespace Hexafuchs\Audit\Checks;
+namespace Hexafuchs\Audit\Checks\IniChecks;
 
+use Hexafuchs\Audit\Checks\Check;
+use Hexafuchs\Audit\Checks\CheckResult;
 use Hexafuchs\Audit\Helper\IniConverter;
 
+/**
+ * Checks if the `enable_dl` directive is enabled.
+ *
+ * This could let an attack bypass restrictions by open_basedir and allow access to any file on the system.
+ */
 class DlDisabled extends Check
 {
     public function check(): bool

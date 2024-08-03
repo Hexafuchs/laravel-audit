@@ -1,9 +1,16 @@
 <?php
 
-namespace Hexafuchs\Audit\Checks;
+namespace Hexafuchs\Audit\Checks\IniChecks;
 
+use Hexafuchs\Audit\Checks\Check;
+use Hexafuchs\Audit\Checks\CheckResult;
 use Hexafuchs\Audit\Helper\IniConverter;
 
+/**
+ * Checks if the `allow_url_include` directive is enabled.
+ *
+ * This would allow include and require statements to access urls like https:// and ftp:// and therefore they could download malicious files and execute them.
+ */
 class DisallowsUrlInclude extends Check
 {
     public function check(): bool

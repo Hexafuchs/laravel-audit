@@ -1,9 +1,16 @@
 <?php
 
-namespace Hexafuchs\Audit\Checks;
+namespace Hexafuchs\Audit\Checks\IniChecks;
 
+use Hexafuchs\Audit\Checks\Check;
+use Hexafuchs\Audit\Checks\CheckResult;
 use Hexafuchs\Audit\Helper\IniConverter;
 
+/**
+ * Checks if the `html_errors` directive is enabled.
+ *
+ * This could lead to the inclusion of html tags in error messages.
+ */
 class NoHTMLErrors extends Check
 {
     public function check(): bool

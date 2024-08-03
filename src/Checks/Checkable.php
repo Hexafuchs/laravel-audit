@@ -2,6 +2,9 @@
 
 namespace Hexafuchs\Audit\Checks;
 
+/**
+ * Interface all checks should implement.
+ */
 interface Checkable
 {
     /**

@@ -1,9 +1,16 @@
 <?php
 
-namespace Hexafuchs\Audit\Checks;
+namespace Hexafuchs\Audit\Checks\IniChecks;
 
+use Hexafuchs\Audit\Checks\Check;
+use Hexafuchs\Audit\Checks\CheckResult;
 use Hexafuchs\Audit\Helper\IniConverter;
 
+/**
+ * Checks if the `report_memleaks` directive is disabled.
+ *
+ * This might lead to memory leaks going unnoticed.
+ */
 class MemoryLeaksReported extends Check
 {
     public function check(): bool

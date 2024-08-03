@@ -1,9 +1,16 @@
 <?php
 
-namespace Hexafuchs\Audit\Checks;
+namespace Hexafuchs\Audit\Checks\IniChecks;
 
+use Hexafuchs\Audit\Checks\Check;
+use Hexafuchs\Audit\Checks\CheckResult;
 use Hexafuchs\Audit\Helper\IniConverter;
 
+/**
+ * Checks if the `enable_dl` directive is disabled.
+ *
+ * This forbids logging errors to a log file which prevents monitoring of issues in your application.
+ */
 class LogsErrors extends Check
 {
     public function check(): bool

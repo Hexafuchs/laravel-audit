@@ -2,6 +2,9 @@
 
 namespace Hexafuchs\Audit\Checks;
 
+/**
+ * Result returned from the check, used to construct the report.
+ */
 class CheckResult
 {
     /**

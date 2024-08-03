@@ -2,6 +2,9 @@
 
 namespace Hexafuchs\Audit\Checks;
 
+/**
+ * States of finished checks to differentiate better and worse results.
+ */
 enum CheckState: string
 {
     /**

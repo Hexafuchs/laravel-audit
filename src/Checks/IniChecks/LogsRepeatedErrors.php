@@ -1,9 +1,16 @@
 <?php
 
-namespace Hexafuchs\Audit\Checks;
+namespace Hexafuchs\Audit\Checks\IniChecks;
 
+use Hexafuchs\Audit\Checks\Check;
+use Hexafuchs\Audit\Checks\CheckResult;
 use Hexafuchs\Audit\Helper\IniConverter;
 
+/**
+ * Checks if the `ignore_repeated_errors` directive is enabled.
+ *
+ * This hides errors that occur multiple times from appearing in your logs.
+ */
 class LogsRepeatedErrors extends Check
 {
     public function check(): bool

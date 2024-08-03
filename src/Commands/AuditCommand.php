@@ -6,6 +6,12 @@ use Hexafuchs\Audit\Checks\CheckState;
 use Hexafuchs\Audit\Facades\Audit;
 use Illuminate\Console\Command;
 
+/**
+ * Command to execute the checks in the CLI.
+ *
+ * This is not a replacement for executing the checks on the webserver, as the webserver typically has a different
+ * config.
+ */
 class AuditCommand extends Command
 {
     public $signature = 'audit

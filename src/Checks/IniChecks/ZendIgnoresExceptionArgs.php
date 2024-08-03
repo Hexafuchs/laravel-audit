@@ -1,9 +1,16 @@
 <?php
 
-namespace Hexafuchs\Audit\Checks;
+namespace Hexafuchs\Audit\Checks\IniChecks;
 
+use Hexafuchs\Audit\Checks\Check;
+use Hexafuchs\Audit\Checks\CheckResult;
 use Hexafuchs\Audit\Helper\IniConverter;
 
+/**
+ * Checks if the `zend.exception_ignore_args` directive is disabled.
+ *
+ * This could expose sensitive information within stack traces.
+ */
 class ZendIgnoresExceptionArgs extends Check
 {
     public function check(): bool

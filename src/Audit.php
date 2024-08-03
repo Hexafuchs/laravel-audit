@@ -6,12 +6,15 @@ use Hexafuchs\Audit\Checks\CheckResult;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Collection;
 
+/**
+ * Contains the logic to execute the tests.
+ */
 class Audit
 {
     /**
-     * @return Collection<CheckResult>
+     * Executes the checks in the `audit.checks` config array and stores the results into a collection.
      *
-     * @throws BindingResolutionException
+     * @return Collection<CheckResult> results of all executed tests
      */
     public function run(): Collection
     {
