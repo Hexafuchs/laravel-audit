@@ -29,7 +29,7 @@ php artisan vendor:publish --tag="audit-config"
 
 ## Documentation
 
-You can find the entire documentation at [https://hexafuchs.github.io/:package_name/](https://hexafuchs.github.io/:package_name/guide/getting-started/index.html).
+You can find the entire documentation at [https://hexafuchs.github.io/laravel-audit/](https://hexafuchs.github.io/laravel-audit/guide/getting-started/index.html).
 
 ## Testing
 
