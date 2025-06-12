@@ -1,3 +1,5 @@
+# Moved to https://codeberg.org/Hexafuchs/laravel-audit
+
 # Laravel environmental checks and auditing
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/hexafuchs/laravel-audit.svg?style=flat-square)](https://packagist.org/packages/hexafuchs/laravel-audit)
